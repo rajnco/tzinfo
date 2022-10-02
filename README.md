@@ -37,7 +37,7 @@ ___
 ====================================== test session starts ======================================
 platform linux -- Python 3.9.2, pytest-7.1.3, pluggy-1.0.0 -- ..../.cache/pypoetry/virtualenvs/tzinfo-6siPToyp-py3.9/bin/python
 cachedir: .pytest_cache
-rootdir: ......./RackSpace/tzinfo
+rootdir: ......./.../tzinfo
 collected 9 items                                                                               
 
 tests/test_init.py::test_version PASSED                                                   [ 11%]
