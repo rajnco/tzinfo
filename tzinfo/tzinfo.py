@@ -64,12 +64,12 @@ def _main():
         #print(cliargs.offset, type(cliargs.offset))
         tzi.offset(cliargs.offset)
 
-    #if tzi.matched:
-        #print(tzi.matched)    
+    if tzi.matched:
+        print(tzi.matched)
         #print(len(tzi.matched))
     
-    print(tzi.to_json())
-    print(tzi.to_yaml())
+    #print(tzi.to_json())
+    #print(tzi.to_yaml())
 
 
 
