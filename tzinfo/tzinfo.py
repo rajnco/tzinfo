@@ -1,3 +1,6 @@
+'''
+display timezone info based on tz offset value and/or keyword search in text,utc,value or abbr
+'''
 import json
 import argparse
 import os
@@ -6,6 +9,7 @@ import yaml
 
 
 class TZInfo:
+    ''' class definition of timezone info  '''
     def __init__(self, filename="timezones.json"):
         filename = os.path.join(os.path.dirname(os.path.abspath(__file__)), filename)
         with open(filename, "r") as fp:
@@ -13,17 +17,20 @@ class TZInfo:
         self.matched = []
 
     def __eq__(self, other):
+        ''' method to compare two TZInfo object '''
         for iii in other.matched:
             if iii not in self.matched:
                 return False
         return True
 
     def offset(self, offset=None):
+        ''' method to find offset value in timezone json '''
         for tz in self.json:
             if abs(tz["offset"]) == abs(offset) and (tz not in self.matched):
                 self.matched.append(tz)
 
     def match(self, matchstr=None):
+        ''' method to find search string in timezone json object '''
         for tz in self.json:
             for field in ["value", "text", "abbr", "utc"]:
                 if field == "utc":
@@ -34,12 +41,16 @@ class TZInfo:
                     self.matched.append(tz)
 
     def to_json(self):
+        ''' returns json object if match found '''
         if self.matched:
             return json.dumps(self.matched)
+        return None
 
     def to_yaml(self):
+        ''' returns yaml object if match found '''
         if self.matched:
             return yaml.dump(self.matched)
+        return None
 
 
 def _main():

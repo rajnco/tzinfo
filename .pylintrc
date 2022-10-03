@@ -1,0 +1,2 @@
+[BASIC]
+good-names=tz, fp		# C0103: Variable name "fp" doesn't conform to snake_case naming style (invalid-name)
