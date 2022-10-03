@@ -29,7 +29,7 @@ ___
 ___
 
 
-### How to run TestCases:
+### To run TestCases:
 
 `poetry  run pytest -vv`
 
@@ -51,4 +51,45 @@ tests/test_tzinfo_2nd.py::TestTZInfo::test_offset PASSED                        
 tests/test_tzinfo_2nd.py::TestTZInfo::test_offset_absolute_value PASSED                   [100%]
 
 ======================================= 9 passed in 0.10s =======================================
+</pre>
+
+
+
+### To run TestCases with Coverage:
+
+`$poetry run  pytest --cov  -vvv`
+
+<pre>
+================================================================= test session starts =================================================================
+platform linux -- Python 3.9.2, pytest-7.1.3, pluggy-1.0.0 -- ......../.cache/pypoetry/virtualenvs/tzinfo-6siPToyp-py3.9/bin/python
+cachedir: .pytest_cache
+rootdir: ............/tzinfo
+plugins: cov-4.0.0
+collected 9 items                                                                                                                                     
+
+tests/test_init.py::test_version PASSED                                                                                                         [ 11%]
+tests/test_tzinfo.py::test_offset PASSED                                                                                                        [ 22%]
+tests/test_tzinfo.py::test_match PASSED                                                                                                         [ 33%]
+tests/test_tzinfo.py::test_match_offset_both PASSED                                                                                             [ 44%]
+tests/test_tzinfo.py::test_offset_absolute_value PASSED                                                                                         [ 55%]
+tests/test_tzinfo_2nd.py::TestTZInfo::test_match PASSED                                                                                         [ 66%]
+tests/test_tzinfo_2nd.py::TestTZInfo::test_match_offset_both PASSED                                                                             [ 77%]
+tests/test_tzinfo_2nd.py::TestTZInfo::test_offset PASSED                                                                                        [ 88%]
+tests/test_tzinfo_2nd.py::TestTZInfo::test_offset_absolute_value PASSED                                                                         [100%]
+
+----------- coverage: platform linux, python 3.9.2-final-0 -----------
+Name                       Stmts   Miss  Cover
+----------------------------------------------
+tests/__init__.py              0      0   100%
+tests/test_init.py             3      0   100%
+tests/test_tzinfo.py          20      0   100%
+tests/test_tzinfo_2nd.py      22      0   100%
+tzinfo/__init__.py             1      0   100%
+tzinfo/tzinfo.py              48     20    58%
+----------------------------------------------
+TOTAL                         94     20    79%
+
+
+================================================================== 9 passed in 0.24s =================================================================
+
 </pre>
